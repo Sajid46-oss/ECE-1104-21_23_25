@@ -231,3 +231,136 @@ void importFromCSV(void) {
 }
 
 /* ---------------------- Viewing & searching ---------------------- */
+
+
+void viewAllStudents(void) {
+    if (studentCount == 0) { printf("\nNo records yet.\n"); return; }
+    printf("\n%-10s %-25s %-6s %-15s\n", "Roll", "Name", "Group", "Phone");
+    printDivider();
+    for (int i = 0; i < studentCount; i++) {
+        printf("%-10s %-25s %-6s %-15s\n",
+               students[i].roll, students[i].name, students[i].bloodGroup, students[i].phone);
+    }
+    printf("\nTotal: %d record(s).\n", studentCount);
+}
+
+void findByBloodGroup(void) {
+    char bg[5];
+    printf("\nEnter the blood group (the one you have, or the one you need): ");
+    readLine(bg, sizeof(bg));
+    toUpperStr(bg);
+    if (!isValidBloodGroup(bg)) { printf("Invalid blood group.\n"); return; }
+
+    int found = 0;
+    printf("\nPeople with blood group %s:\n", bg);
+    printf("%-10s %-25s %-15s\n", "Roll", "Name", "Phone");
+    printDivider();
+    for (int i = 0; i < studentCount; i++) {
+        if (strcmp(students[i].bloodGroup, bg) == 0) {
+            printf("%-10s %-25s %-15s\n", students[i].roll, students[i].name, students[i].phone);
+            found++;
+        }
+    }
+    if (!found) printf("No one in the records has blood group %s.\n", bg);
+    else printf("\nTotal: %d people with blood group %s.\n", found, bg);
+}
+
+/* ---------------------- Update & delete ---------------------- */
+
+void updateStudent(void) {
+    char roll[15];
+    printf("Enter roll of student to update: ");
+    readLine(roll, sizeof(roll));
+    int idx = findIndexByRoll(roll);
+    if (idx == -1) { printf("Student not found.\n"); return; }
+
+    int choice;
+    do {
+        printf("\n--- Update %s (Roll %s) ---\n", students[idx].name, students[idx].roll);
+        printf("1. Name (%s)\n", students[idx].name);
+        printf("2. Blood Group (%s)\n", students[idx].bloodGroup);
+        printf("3. Phone (%s)\n", students[idx].phone);
+        printf("0. Done\n");
+        printf("Choice: ");
+        scanf("%d", &choice);
+        flushInputBuffer();
+
+        switch (choice) {
+            case 1:
+                printf("New name: ");
+                readLine(students[idx].name, sizeof(students[idx].name));
+                break;
+            case 2: {
+                char bg[5];
+                do {
+                    printf("New blood group: ");
+                    readLine(bg, sizeof(bg));
+                    toUpperStr(bg);
+                    if (!isValidBloodGroup(bg)) printf("Invalid group.\n");
+                } while (!isValidBloodGroup(bg));
+                strcpy(students[idx].bloodGroup, bg);
+                break;
+            }
+            case 3:
+                printf("New phone: ");
+                readLine(students[idx].phone, sizeof(students[idx].phone));
+                break;
+            case 0: break;
+            default: printf("Invalid choice.\n");
+        }
+    } while (choice != 0);
+
+    saveStudents();
+    printf("Updated. Data synced.\n");
+}
+
+void deleteStudent(void) {
+    char roll[15];
+    printf("Enter roll of student to delete: ");
+    readLine(roll, sizeof(roll));
+    int idx = findIndexByRoll(roll);
+    if (idx == -1) { printf("Student not found.\n"); return; }
+
+    printf("Delete %s (Roll %s)? (y/n): ", students[idx].name, students[idx].roll);
+    char c;
+    scanf(" %c", &c);
+    flushInputBuffer();
+    if (tolower((unsigned char) c) != 'y') { printf("Cancelled.\n"); return; }
+
+    for (int i = idx; i < studentCount - 1; i++) students[i] = students[i + 1];
+    studentCount--;
+    saveStudents();
+    printf("Deleted. Data synced.\n");
+}
+
+/* ---------------------- Menu ---------------------- */
+
+void mainMenu(void) {
+    int choice;
+    do {
+        printf("\n=====================================================\n");
+        printf("   BLOOD SYNC - Department Blood Group Directory\n");
+        printf("=====================================================\n");
+        printf("1. Add Student(s)\n");
+        printf("2. Import Students from CSV File\n");
+        printf("3. View All Students\n");
+        printf("4. Find People By Blood Group  <-- main feature\n");
+        printf("5. Update a Student\n");
+        printf("6. Delete a Student\n");
+        printf("0. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+        flushInputBuffer();
+
+        switch (choice) {
+            case 1: addMultipleStudents(); break;
+            case 2: importFromCSV(); break;
+            case 3: viewAllStudents(); break;
+            case 4: findByBloodGroup(); break;
+            case 5: updateStudent(); break;
+            case 6: deleteStudent(); break;
+            case 0: printf("Data saved. Goodbye!\n"); break;
+            default: printf("Invalid choice, try again.\n");
+        }
+    } while (choice != 0);
+}
