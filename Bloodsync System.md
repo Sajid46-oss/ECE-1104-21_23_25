@@ -364,3 +364,77 @@ void mainMenu(void) {
         }
     } while (choice != 0);
 }
+
+```
+
+## *Info File*
+In this file we've kept the information of 60 students of our department .
+[roster.csv](https://github.com/user-attachments/files/31750563/roster.csv)
+roll,name,bloodgroup
+2510001,Auritri Barua,A+
+2510002,A. M. Montasir Un Nobi Borno,A+
+2510003,Zobair Ibn Amin,B+
+2510004,Onirban Deb,B+
+2510005,Md. Samiullah,B+
+2510006,Mumtahinah Munaja Tahi,B-
+2510007,Tashrif Islam Sarat,A+
+2510008,Shahria Hossain Tabassum,B+
+2510009,Mst. Fouzia Hoque Dristy,A+
+2510010,Md. Fazle Rabbi,O+
+2510011,Sayon Ghosh Arnob,A+
+2510012,Parthib Sutradhar,A+
+2510013,Sumaiya Sultana Maksura,B+
+2510014,Md. Mosabbir Salehin,B+
+2510015,Umma Farzana Kabir,B+
+2510016,Golam Sadat Raihan,B-
+2510017,Md.Omar Faruk Shifat,A+
+2510018,Tashfia Islam Saba,O+
+2510019,Alif Al Hasan,A+
+2510020,Md. Amir Hamza,AB+
+2510021,Ahnaf Hameem,B+
+2510022,Jannaty Akter,O+
+2510023,MD Sajid Hasan,A+
+2510024,Jahrin Taslim,O+
+2510025,Md. Toufikul Islam Omi,AB+
+2510026,Hasan Mushfiq,B+
+2510027,Tanbina Akter Tanisha,A+
+2510028,Mohammad Ahnaf Habib,B+
+2510029,Md. Shahriar Mahmud Pias,A+
+2510030,Tasfia Zinat,A+
+2510031,K. M. Ali Imran Nur,A+
+2510032,Anika Tahsin,B+
+2510033,Sajib Dutta,O+
+2510034,Ehsunul Islam,O+
+2510035,AL-Fahim,O+
+2510036,Md. Mustahid Parvez,O+
+2510037,Md Rifat Rahman Deshad,A+
+2510038,Tanisha Khan,O+
+2510039,Fahmida Akther Ayman,O+
+2510040,Sajidur Rahman,B-
+2510041,Md. Muhaiminul Islam,O+
+2510042,Jaber Al Masud Joy,B+
+2510043,Md. Sourav Hossain Medha,AB+
+2510044,Jarin Tasnim,B+
+2510045,Md. Shanewaj Islam Raj,A+
+2510046,Rajdip Kormokar,O+
+2510047,Ahmed Ibrahim,A+
+2510048,Talha Hasin Bin Haroon,A+
+2510049,Mobeshir Hossain Fakir,O+
+2510050,Mamun Rashid,O-
+2510051,Noor Mohammod,B+
+2510052,Nishika Sharif,O-
+2510053,Rahul Sarker,B+
+2510054,Najib Ahmed Ratul,O+
+2510055,Safwan Ahmed,O-
+2510056,Simanto Kumar Sarkar,O+
+2510057,Mahbub Shahriar,A+
+2510058,Dipto Biswas,B+
+2510059,Md. Faruque Al Harun,B+
+2510060,Akib Hasan Rafi,B+
+
+
+## *Output*
+<img width="517" height="343" alt="Screenshot 2026-09-03 001149" src="https://github.com/user-attachments/assets/a6d307cc-cb8a-4f18-a5a3-1bbad4965b0c" />
+<img width="470" height="347" alt="Screenshot 2026-09-03 001215" src="https://github.com/user-attachments/assets/bbb1810d-1cfb-4cbc-9050-ed675afdb610" />
+
+
