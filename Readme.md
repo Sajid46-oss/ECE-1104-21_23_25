@@ -43,3 +43,10 @@ _**Heaven’s Light is Our Guide**_
 ---
 </div>
 <div align="center"> 
+
+  
+## Index
+| Title | Link |
+| :---: | :---: |
+| Project Code |[Code](https://github.com/Sajid46-oss/ECE-1104-21_23_25/blob/main/Bloodsync%20System.md)|
+|Presentation video|[Presentation](https://github.com/Sajid46-oss/ECE-1104-21_23_25/blob/main/presentation%20of%20project.md)|
